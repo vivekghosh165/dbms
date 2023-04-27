@@ -1,0 +1,25 @@
+
+CREATE DATABASE mydatabase;
+
+USE mydatabase;
+
+CREATE TABLE mytable (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL,
+  age INT(3),
+  PRIMARY KEY (id)
+);
+
+INSERT INTO mytable (name, age) VALUES ('John', 30);
+Query OK, 1 row affected (0.00 sec)
+
+INSERT INTO mytable (name, age) VALUES ('Jane', 25);
+Query OK, 1 row affected (0.00 sec)
+
+UPDATE mytable SET age = 31 WHERE name = 'John';
+Query OK, 1 row affected (0.00 sec)
+
+DELETE FROM mytable WHERE name = 'Jane';
+Query OK, 1 row affected (0.00 sec)
+
+SELECT * FROM mytable;

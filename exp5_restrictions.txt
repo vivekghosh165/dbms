@@ -1,0 +1,26 @@
+CREATE DATABASE mydatabase;
+USE mydatabase;
+
+CREATE TABLE mytable (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL,
+  age INT(3),
+  PRIMARY KEY (id)
+);
+
+ALTER TABLE mytable ADD CONSTRAINT age_range CHECK (age BETWEEN 18 AND 60);
+
+ALTER TABLE mytable ADD CONSTRAINT unique_name UNIQUE (name);
+
+CREATE TABLE myothertable (
+  id INT(11) NOT NULL,
+  otherfield VARCHAR(50),
+  PRIMARY KEY (id),
+  FOREIGN KEY (id) REFERENCES mytable(id)
+);
+
+INSERT INTO mytable (name, age) VALUES ('Bob', 65);
+
+INSERT INTO mytable (name, age) VALUES ('John', 25);
+
+INSERT INTO myothertable (id, otherfield) VALUES (100, 'Other');

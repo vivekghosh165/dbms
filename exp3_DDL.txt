@@ -1,0 +1,29 @@
+CREATE DATABASE example_db;
+
+
+USE example_db;
+
+CREATE TABLE example_table (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
+    age INT
+);
+
+INSERT INTO example_table (name, email, age)
+VALUES ('Vivek', 'vivek@example.com', 19),
+       ('Smit', 'Smit@example.com', 18),
+       ('Soham', 'Soahm@example.com', 19);
+
+
+ALTER TABLE example_table
+ADD CONSTRAINT age_check CHECK (age >= 18);
+
+ALTER TABLE example_table
+ADD CONSTRAINT email_check CHECK (email LIKE '%@%.%');
+
+ALTER TABLE example_table
+MODIFY name VARCHAR(255) NOT NULL;
+
+ALTER TABLE example_table
+MODIFY id INT AUTO_INCREMENT UNIQUE;

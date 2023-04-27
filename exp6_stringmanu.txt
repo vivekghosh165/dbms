@@ -1,0 +1,81 @@
+sudo mysql -u root
+
+use aggregateFunc;
+
+show tables;
+
+desc PRODUCT_MAST;
+
+select * from PRODUCT_MAST;
+
+insert into PRODUCT_MAST values ("Item2","Com2",3,68,54);
+insert into PRODUCT_MAST values ("Item3","Com3",5,8,4);
+insert into PRODUCT_MAST values ("Item4","Com4",54,48,44);
+insert into PRODUCT_MAST values ("Item5","Com5",541,45,69);
+insert into PRODUCT_MAST values ("Item6","Com6",55,45,9);
+insert into PRODUCT_MAST values ("Your","M",4,20,69);
+
+desc PRODUCT_MAST;
+
+select * from PRODUCT_MAST;
+
+SELECT COUNT(*)
+    -> from PRODUCT_MAST;
+
+SELECT COUNT(DISTINCT COMPANY)
+  -> FROM PRODUCT_MAST;
+
+SELECT SUM(COST)
+    -> FROM PRODUCT_MAST;
+
+ SELECT AVG(COST)
+    -> FROM PRODUCT_MAST;
+
+SELECT MAX(RATE)
+    -> FROM PRODUCT_MAST;
+
+SELECT MIN(RATE)
+    -> FROM PRODUCT_MAST;
+
+
+
+
+
+sudo mysql -u root
+
+create database stringFunc;
+use stringFunc;
+
+CREATE TABLE Faculty_Info  
+(  
+Faculty_ID INT NOT NULL PRIMARY KEY,    
+Faculty_First_Name VARCHAR (100),    
+Faculty_Last_Name VARCHAR (100),    
+Faculty_Dept_Id INT NOT NULL,  
+Faculty_Address Varchar(120),  
+Faculty_City Varchar (80),  
+Faculty_Salary INT   
+);  
+
+INSERT INTO Faculty_Info VALUES(1001, "Arush", "Sharma", 4001, "Aman Vihar", "Delhi", 20000);
+INSERT INTO Faculty_Info VALUES(1069, "Vivek", "Ghosh", 6969, "Your M", "Earth", 42069);
+INSERT INTO Faculty_Info VALUES(1420, "Smit", "Patil", 66, "Your F", "Mars", 469);
+INSERT INTO Faculty_Info VALUES(14, "Soham", "Kandalkar", 6, "Your G", "Venus", 69);
+INSERT INTO Faculty_Info VALUES(420, "Kunal", "Rawal", 46, "Your E", "Uranaus", 669);
+SELECT * FROM Faculty_Info;
+
+delete from Faculty_Info where Faculty_ID='1001';
+
+SELECT Faculty_City, ASCII(Faculty_City) AS ASCII_code_of_column FROM Faculty_Info;
+
+SELECT Faculty_Last_Name, CHAR_LENGTH(Faculty_Last_Name) AS Length_of_Last_Namecolumn FROM Faculty_Info;
+
+SELECT Faculty_Address, CHARACTER_LENGTH(Faculty_Address) AS Length_of_Address_column FROM Faculty_Info;
+
+SELECT CONCAT(Faculty_First_Name,Faculty_Last_Name) AS Append_First_LastName FROM Faculty_Info;
+
+SELECT CONCAT_WS(' ', Faculty_First_Name, Faculty_Last_Name) AS Append_First_LastName FROM Faculty_Info;
+
+SELECT Faculty_Address, LEFT(Faculty_Address, 6) AS LEFT_Address FROM Faculty_Info;
+
+SELECT Faculty_Address, RIGHT(Faculty_Address, 6) AS RIGHT_Address FROM Faculty_Info;

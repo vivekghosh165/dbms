@@ -1,0 +1,13 @@
+
+sudo mysql -u root
+show databases;
+use vivek;
+show tables;
+
+create table employee( rollno int, name varchar(20), age int, branch varchar(20), course varchar(20));
+
+ insert into employee(rollno,name,age,branch,course) values (102,'soahm',19,'EG','COMPS');
+
+select * from employee ;
+
+select name,rollno,course from employee where rollno > (select rollno from employee where name="Soham");
